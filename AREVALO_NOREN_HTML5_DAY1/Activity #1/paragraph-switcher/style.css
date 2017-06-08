@@ -1,0 +1,19 @@
+#first-paragraph {
+    color: red;
+}
+
+#second-paragraph {
+    color: blue;
+}
+
+#third-paragraph {
+    color: green;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.italic-text {
+    font-style: italic;
+}

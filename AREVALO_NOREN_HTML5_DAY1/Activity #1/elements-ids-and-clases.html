@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Referencing elements, IDs, and classes in HTML</title>
+    <style>
+        P {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .same-class {
+            font-size: 1.9em;
+        }
+        
+        #hello1 {
+            color: red;
+        }
+        
+        hello2 {
+            color: green;
+        }
+        
+        .special .some-class {
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        div.some-class {
+            font-size: 10px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <p class="some-class">This is some class</p>
+    <p class="some-class">This is another one</p>
+    <p class="some-class" id="hello1">This is a third one</p>
+    <p id="hello2">This is the fourth one</p>
+    <div class="special">
+        <p class="some-class">This is a special one</p>
+    </div>
+    <div class="some-class">
+        This is small
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0px;
+            color: white;
+            height: 100%;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        .cell {
+            text-align: center;
+            display: table;
+        }
+        
+        #cell1 {
+            width: 100%;
+            height: 50%;
+            background-color: red;
+        }
+        
+        .cell>div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        #cell2 {
+            width: 50%;
+            height: 50%;
+            float: left;
+            background-color: green;
+        }
+        
+        #cell3 {
+            width: 50%;
+            height: 50%;
+            float: right;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cell" id="cell1">
+        <div>
+            Cell 1
+        </div>
+    </div>
+    <div class="cell" id="cell2">
+        <div>
+            Cell 2
+        </div>
+    </div>
+    <div class="cell" id="cell3">
+        <div>
+            Cell 3
+        </div>
+    </div>
+</body>
+
+</html>

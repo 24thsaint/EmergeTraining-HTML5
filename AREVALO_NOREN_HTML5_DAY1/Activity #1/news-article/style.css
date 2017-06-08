@@ -1,0 +1,20 @@
+.header-title {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.metadata {
+    color: grey;
+}
+
+.article {
+    color: black;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.article {
+    width: 50%;
+}

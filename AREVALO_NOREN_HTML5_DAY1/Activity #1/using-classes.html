@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM: Example</title>
+    <script>
+        window.onload = () => {
+            var elements = document.getElementsByClassName('specialty')
+            for (let i = 0; i < elements.length; i++) {
+                alert(elements[i].innerHTML)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <p class="specialty">This is the text</p>
+    <p class="something">This is something more</p>
+    <p><b class="specialty">Royal Treatment</b></p>
+</body>
+
+</html>

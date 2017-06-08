@@ -1,0 +1,8 @@
+.inline>div {
+    display: inline-block;
+}
+
+.header {
+    font-size: 28px;
+    font-weight: bold;
+}

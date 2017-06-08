@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DIV and SPAN: Before and now</title>
+    <style>
+        h1 {
+            font-family: Sans;
+            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .header1 {
+            font-family: Sans;
+            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        p {
+            margin-bottom: 0.5em;
+        }
+        
+        .paragraph {
+            margin-bottom: 0.5em;
+        }
+        
+        .italic-text {
+            font-style: italic;
+        }
+        
+        .bold-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Old way-->
+    <h1>This is a header</h1>
+    <p>This is a paragraph that contains <b>bold text</b> and <i>italic text</i>.</p>
+    <!--New way-->
+    <div class="header1">This is a header</div>
+    <div class="paragraph">
+        This is a paragraph that contains
+        <span class="bold-text">bold text</span> and <span class="italic-text">italic text</span>.
+    </div>
+</body>
+
+</html>
