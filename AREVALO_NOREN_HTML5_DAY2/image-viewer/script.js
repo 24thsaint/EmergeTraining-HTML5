@@ -1,3 +1,21 @@
+window.onload = () => {
+    document.getElementById('image-1').onclick = () => {
+        change('1.JPG')
+    }
+    document.getElementById('image-2').onclick = () => {
+        change('2.JPG')
+    }
+    document.getElementById('image-3').onclick = () => {
+        change('3.JPG')
+    }
+    document.getElementById('image-4').onclick = () => {
+        change('4.JPG')
+    }
+    document.getElementById('image-loader').onclick = () => {
+        popUp('Hello, please enter image location')
+    }
+}
+
 function change(file) {
     const element = document.getElementById('image')
     element.src = file
