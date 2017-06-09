@@ -1,0 +1,94 @@
+body {
+    margin: 0px;
+}
+
+#first-text {
+    background-color: cyan;
+}
+
+#second-text {
+    background-color: lime;
+}
+
+#third-text {
+    background-color: yellow;
+}
+
+@media only screen and (min-width: 400px) {
+    #sidebar {
+        background-color: rgba(255, 0, 0, 0.5);
+        top: 64px;
+        bottom: 32px;
+        width: 200px;
+        overflow: scroll;
+        padding: 10px;
+        position: fixed;
+        margin: 8px;
+    }
+    #content {
+        left: 20%;
+        top: 64px;
+        bottom: 32px;
+        position: fixed;
+        overflow: scroll;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    #sidebar {
+        background-color: rgba(255, 0, 0, 0.5);
+        padding: 10px;
+        margin: auto;
+        margin-top: 64px;
+    }
+    #content {
+        margin-top: 5%;
+        overflow: scroll;
+    }
+}
+
+@media only screen and (min-width: 275px) {
+    #header {
+        width: 100%;
+        height: 64px;
+        position: fixed;
+        top: 0px;
+        background: rgba(100, 100, 255, 0.5);
+    }
+    #header>h1 {
+        margin: 16px 0 0 16px;
+        color: white;
+        font: bold 32px arial;
+    }
+    #footer {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 32px;
+        position: fixed;
+        bottom: 0px;
+    }
+    #footer>p {
+        margin: 8px;
+        color: white;
+        font: bold 16px arial;
+    }
+}
+
+@media only screen and (max-width: 274px) {
+    #header {
+        display: none;
+    }
+    #footer {
+        display: none;
+    }
+    #sidebar {
+        background-color: rgba(255, 0, 0, 0.5);
+        padding: 10px;
+        margin: auto;
+    }
+    #content {
+        margin-top: 5%;
+        overflow: scroll;
+    }
+}
