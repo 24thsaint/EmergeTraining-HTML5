@@ -14,7 +14,7 @@
             background: black;
             color: white;
             font-size: 16px;
-            padding: 16px;
+            padding: 20px;
         }
         
         #header>#name {
@@ -52,7 +52,9 @@
         @media only screen and (max-width: 599px) {
             #menubutton {
                 display: inline;
-                float: right;
+                border-left: 1px solid white;
+                margin-left: 10px;
+                padding-left: 10px;
             }
             #menu {
                 position: absolute;
@@ -88,6 +90,7 @@
         window.onload = () => {
             document.getElementById('menulink').onclick = () => {
                 const menu = document.getElementById('menu')
+                console.log(menu.className)
                 if (menu.className != 'shownmenu') {
                     menu.className = 'shownmenu'
                 } else {
@@ -104,7 +107,7 @@
             The magician's cradle'
         </div>
         <div id="menubutton">
-            <a href="#" id="menulink"></a>
+            <a href="#" id="menulink">Menu</a>
         </div>
         <div id="menu" class="hiddenmenu">
             <div class="menuitem">

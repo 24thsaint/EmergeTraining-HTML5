@@ -17,7 +17,7 @@ body {
 a.button {
     text-decoration: none;
     border: 2px solid black;
-    display: inline-block;
+    display: block;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -29,9 +29,16 @@ a.button:hover {
     background-color: #cbfffd;
 }
 
+#content {
+    z-index: -1;
+}
+
+#sidebar {
+    background-color: rgb(255, 0, 0);
+}
+
 @media only screen and (min-width: 400px) {
     #sidebar {
-        background-color: rgba(255, 0, 0, 0.5);
         top: 64px;
         bottom: 32px;
         width: 200px;
@@ -42,7 +49,7 @@ a.button:hover {
     }
     #content {
         left: 20%;
-        top: 64px;
+        top: 75px;
         bottom: 32px;
         position: fixed;
         overflow: scroll;
@@ -52,7 +59,6 @@ a.button:hover {
 
 @media only screen and (max-width: 399px) {
     #sidebar {
-        background-color: rgba(255, 0, 0, 0.5);
         padding: 10px;
         margin: auto;
         margin-top: 64px;
@@ -98,7 +104,6 @@ a.button:hover {
         display: none;
     }
     #sidebar {
-        background-color: rgba(255, 0, 0, 0.5);
         padding: 10px;
         margin: auto;
     }
