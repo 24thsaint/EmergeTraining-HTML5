@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSS Button Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 0px;
+            display: table;
+            height: 100%;
+            width: 100%;
+            background: rgba(200, 20, 200, 200, 1.0)
+        }
+        
+        body>div {
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+        a.button {
+            width: 150px;
+            display: inline-block;
+            background: --webkit-linear-gradient(top, #a9db80, #96c56f);
+            background: --moz-linear-gradient(top, #a9db80, #96c56f);
+            background: --ms-linear-gradient(top, #a9db80, #96c56f);
+            background: --o-linear-gradient(top, #a9db80, #96c56f);
+            background: linear-gradient(to bottom, #a9db80, #96c56f);
+            border-radius: 8px;
+            border: 1px solid #444444;
+            box-shadow: 0px 1px 1px #888888 inset, 1px 1px 3px #222222;
+            color: #6d954e;
+            text-align: center;
+            padding: 16px 32px 16px 32px;
+            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.4);
+            font-family: arial;
+        }
+        
+        a.button:hover {
+            background: rgba(120, 160, 120, 1);
+            color: white;
+        }
+        
+        a.button:active {
+            background: rgba(80, 120, 80, 1);
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            const clicker = () => {
+                alert('This nice button is clicked')
+            }
+            document.getElementById('clickable').onclick = clicker
+        }
+    </script>
+</head>
+
+<body>
+    <a class="button" href="#" id="clickable">This is a very nice button.</a>
+    <a class="button" href="#" id="clickable">This is a very nice button.</a>
+</body>
+
+</html>

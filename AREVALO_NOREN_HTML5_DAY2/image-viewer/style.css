@@ -1,0 +1,94 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: fixed;
+    height: 20px;
+    width: 100%;
+    background-color: aquamarine;
+    padding: 20px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px;
+    background-color: pink;
+    bottom: 20px;
+    width: 10%;
+    height: 50%;
+    padding: 2%;
+    margin: 1%;
+    text-align: center;
+}
+
+.content {
+    position: fixed;
+    top: 60px;
+    left: 16%;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+a.button {
+    background-color: deepskyblue;
+    border-radius: 10px;
+    border-color: darkblue;
+    border-style: inset;
+    padding: 10px 20px 10px 20px;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    background-color: aquamarine;
+}
+
+.small {
+    height: 250px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreenpopup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 30;
+}
+
+.fullscreenpopup-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreenpopup-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
