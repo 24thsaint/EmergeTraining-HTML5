@@ -15,15 +15,41 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: scroll;
+}
+
+#country-container.container {
+    display: block;
+}
+
+#countries-loader {
+    text-align: center;
+    font-size: 40px;
+}
+
+.index {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #welcome-banner {
     font-size: 20px;
+    text-align: center;
 }
 
 #name>img {
     height: 30px;
     top: 0;
+}
+
+#countries {
+    overflow: scroll;
+}
+
+table,
+td {
+    border: 1px solid black;
 }
 
 #header {
@@ -34,9 +60,13 @@ body {
     margin-bottom: 10px;
 }
 
-#person {
+.red-emphasis {
     color: red;
     font-weight: bold;
+}
+
+.red-background-emphasis {
+    background-color: rgba(255, 0, 0, 0.5)
 }
 
 #header>#name {
@@ -107,4 +137,91 @@ body {
 
 .content {
     font-family: cursive;
+    overflow: scroll;
+}
+
+#hamburger {
+    display: none;
+    align-self: center;
+    font-size: 30px;
+    border-left: 1px solid black;
+    margin-left: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+a.button {
+    text-decoration: none;
+    border: 2px solid black;
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 3px 1px 3px #eaeaea;
+    cursor: pointer;
+}
+
+a.button:hover {
+    background-color: #cbfffd;
+}
+
+#pictures.content {
+    z-index: -1;
+    left: 20%;
+    top: 75px;
+    bottom: 32px;
+    position: fixed;
+    overflow: scroll;
+    width: 80%;
+}
+
+#pictures.container {
+    overflow: auto;
+}
+
+.small {
+    height: 250px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#footer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 32px;
+    position: fixed;
+    bottom: 0px;
+}
+
+#footer>p {
+    margin: 8px;
+    color: white;
+    font: bold 16px arial;
+}
+
+#sidebar {
+    background-color: rgb(255, 0, 0);
+    top: 64px;
+    bottom: 32px;
+    width: 200px;
+    overflow: scroll;
+    position: fixed;
+}
+
+@media only screen and (max-width: 399px) {
+    #hamburger {
+        display: inline;
+    }
+    .hiddenSidebar {
+        display: none;
+    }
+    .shownSidebar {
+        display: block;
+    }
 }
