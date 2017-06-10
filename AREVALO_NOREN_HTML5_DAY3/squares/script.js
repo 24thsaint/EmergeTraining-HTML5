@@ -20,9 +20,21 @@ class Square {
 }
 
 window.onload = () => {
+
     const c = document.getElementById('squares')
     c.width = window.innerWidth
     c.height = window.innerHeight
+
+    generateSquares()
+
+    c.onclick = () => {
+        generateSquares()
+    }
+
+}
+
+function generateSquares() {
+    const c = document.getElementById('squares')
     const context = c.getContext('2d')
 
     let lastX = 0;

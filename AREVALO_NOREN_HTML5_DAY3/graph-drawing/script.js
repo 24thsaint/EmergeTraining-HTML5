@@ -1,11 +1,14 @@
 window.onload = () => {
+    const c = document.getElementById('graph')
+    c.height = window.innerHeight;
+    c.width = window.innerWidth;
+
     drawGraph()
 
     window.onresize = () => {
         drawGraph()
     }
 
-    const c = document.getElementById('graph')
     c.onclick = () => {
         drawGraph()
     }
