@@ -56,7 +56,9 @@ function generateSquares() {
     for (let y = 0; y < limitY; y++) {
         for (let x = 0; x < limitX; x++) {
             if (counter % 7 === 0) {
-                generateMiniSquares(x * squareWidth, y * squareWidth, squareWidth, context)
+                generateSquareSorcery(x * squareWidth, y * squareWidth, squareWidth, context, 2)
+            } else if (counter % 11 === 0) {
+                generateSquareSorcery(x * squareWidth, y * squareWidth, squareWidth, context, 4)
             } else {
                 const square = new Square(x * squareWidth, y * squareWidth, squareWidth)
                 square.render(context)
@@ -66,12 +68,14 @@ function generateSquares() {
     }
 }
 
-function generateMiniSquares(sizeX, sizeY, squareWidth, context) {
-    const halfSquareWidth = squareWidth * 0.5
+function generateSquareSorcery(sizeX, sizeY, squareWidth, context, divisor) {
+    const halfSquareWidth = squareWidth / divisor
 
-    for (let miniTop = 0; miniTop < 2; miniTop++) {
-        for (let miniBot = 0; miniBot < 2; miniBot++) {
-            const square = new Square(sizeX + miniTop * halfSquareWidth, sizeY + miniBot * halfSquareWidth, halfSquareWidth)
+    for (let miniTop = 0; miniTop < divisor; miniTop++) {
+        for (let miniBot = 0; miniBot < divisor; miniBot++) {
+            const x = sizeX + miniTop * halfSquareWidth
+            const y = sizeY + miniBot * halfSquareWidth
+            const square = new Square(x, y, halfSquareWidth)
             square.render(context)
         }
     }
