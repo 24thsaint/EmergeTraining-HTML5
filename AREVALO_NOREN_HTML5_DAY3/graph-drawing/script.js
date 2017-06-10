@@ -5,32 +5,38 @@ window.onload = () => {
 
     const context = c.getContext('2d')
 
-    console.log(context.canvas.clientWidth)
-    console.log(c.width)
-
     const height = c.height;
     const width = c.width;
-    context.fillStyle = '#000000'
+    context.fillStyle = '#FFFFFF'
     context.fillRect(0, 0, width, height)
 
     const dx = width / 2;
     const dy = height / 2;
-    console.log(dx)
-
 
     drawAxis(context, dx, dy)
+    functionOfXRaisedToPower(context, dx, dy, 1, 1)
+    functionOfXRaisedToPower(context, dx, dy, 1, 2)
+    functionOfXRaisedToPower(context, dx, dy, 1, 3)
+}
 
+function functionOfXRaisedToPower(context, dx, dy, coefficient, power) {
+    context.beginPath()
     context.moveTo(dx, dy)
-
-    for (let y = dy; y > -dy; y--) {
-        context.lineTo(dy + y, dy - (y * y))
+    context.beginPath()
+    for (let x = dy; x > -dy; x--) {
+        context.lineTo(dx + x, dy - (coefficient * (Math.pow(x, power))))
     }
-
-    context.strokeStyle = '#FFFFFF'
+    context.strokeStyle = `#${randomColor()}`
     context.stroke()
 }
 
+function randomColor() {
+    const color = Math.floor(Math.random() * 16777215)
+    return color.toString(16)
+}
+
 function drawAxis(context) {
+    context.beginPath()
     const height = context.canvas.clientHeight;
     const width = context.canvas.clientWidth;
     const dx = width / 2;
@@ -40,4 +46,7 @@ function drawAxis(context) {
     context.lineTo(width, dy)
     context.moveTo(dx, 0)
     context.lineTo(dx, height)
+
+    context.strokeStyle = '#000000'
+    context.stroke()
 }
