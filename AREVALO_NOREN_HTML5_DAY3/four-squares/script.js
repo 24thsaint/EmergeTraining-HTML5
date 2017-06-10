@@ -1,9 +1,9 @@
 class Square {
-    constructor(x, y, squareWidth) {
+    constructor(x, y) {
         this.x = x
         this.y = y
-        this.width = squareWidth
-        this.height = squareWidth
+        this.width = 100
+        this.height = 100
         this.color = `#${this.randomColor()}`
     }
 
@@ -31,30 +31,19 @@ window.onload = () => {
         generateSquares()
     }
 
-    window.onresize = () => {
-        const c = document.getElementById('squares')
-        c.width = window.innerWidth
-        c.height = window.innerHeight
-        generateSquares()
-    }
-
 }
 
 function generateSquares() {
     const c = document.getElementById('squares')
     const context = c.getContext('2d')
-    const squareWidth = 100
 
     let lastX = 0;
     let lastY = 0;
 
-    let limitX = c.width / squareWidth
-    let limitY = c.height / squareWidth
-
-    for (let x = 0; x < limitX; x++) {
-        for (let y = 0; y < limitY; y++) {
-            const square = new Square(x * squareWidth, y * squareWidth, squareWidth)
-            square.render(context)
-        }
+    for (let i = 0; i < 4; i++) {
+        const square = new Square(lastX, lastY)
+        square.render(context)
+        lastX += square.width
+        lastY += square.height
     }
 }

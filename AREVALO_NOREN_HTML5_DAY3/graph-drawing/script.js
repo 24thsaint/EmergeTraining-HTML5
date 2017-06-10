@@ -16,9 +16,6 @@ window.onload = () => {
 
 function drawGraph() {
     const c = document.getElementById('graph')
-    c.height = window.innerHeight;
-    c.width = window.innerWidth;
-
     const context = c.getContext('2d')
 
     const height = c.height;
