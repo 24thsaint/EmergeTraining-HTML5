@@ -43,7 +43,7 @@ window.onload = () => {
 function generateSquares() {
     const c = document.getElementById('squares')
     const context = c.getContext('2d')
-    const squareWidth = 50
+    const squareWidth = 100
 
     let lastX = 0;
     let lastY = 0;
