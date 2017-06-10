@@ -28,8 +28,8 @@ function drawGraph() {
 
     drawAxis(context, dx, dy)
     functionOfXRaisedToPower(context, dx, dy, 1, 1)
-    functionOfXRaisedToPower(context, dx, dy, 0.05, 2)
-    functionOfXRaisedToPower(context, dx, dy, 0.01, 3)
+    functionOfXRaisedToPower(context, dx, dy, 0.005, 2)
+    functionOfXRaisedToPower(context, dx, dy, 0.001, 3)
 }
 
 function functionOfXRaisedToPower(context, dx, dy, coefficient, power) {
@@ -62,6 +62,4 @@ function drawAxis(context) {
 
     context.strokeStyle = '#000000'
     context.stroke()
-
-    context.draw
 }

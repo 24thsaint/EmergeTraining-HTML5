@@ -28,20 +28,15 @@ function createBall() {
     const y = height / 2
     const radius = width - x
 
+    // *** Debugging purposes
     // context.fillStyle = '#000000'
     // context.fillRect(0, 0, width, height)
-
+    // *** Original task
     // context.fillStyle = '#00FF00'
     // context.arc(x, y, radius, toRadians(0), toRadians(360))
     // context.fill()
     // context.strokeStyle = '#0000FF'
     // context.stroke()
-
-    // const image = document.createElement('img')
-    // image.src = 'ball.png'
-    // image.onload = () => {
-    //     context.drawImage(image, 64, 64)
-    // }
 
     const image = document.createElement('img')
     image.src = 'ball.png'
