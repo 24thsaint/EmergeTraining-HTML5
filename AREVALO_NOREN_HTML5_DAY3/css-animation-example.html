@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #container {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        @keyframes moveit {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @-webkit-keyframes moveit {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        .movable {
+            animation-duration: 3s;
+            animation-name: moveit;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            -webkit-animation-duration: 3s;
+            -webkit-animation-name: moveit;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="movable">
+            Movable
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Triggering transitions via Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            margin: 0px;
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #container {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        #myimg {
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+            height: 250px;
+            width: 250px;
+        }
+        
+        #buttons {
+            position: fixed;
+            left: 8px;
+            top: 8px;
+        }
+    </style>
+    <script>
+        const onTransitionEnd = () => {
+            document.getElementById('status').innerHTML = 'Not moving'
+        }
+
+        window.onload = () => {
+            document.getElementById('myimg').addEventListener('transitionend', onTransitionEnd, false)
+            document.getElementById('myimg').addEventListener('webkitTransitionEnd', onTransitionEnd, false)
+            document.getElementById('deg0').onclick = () => {
+                document.getElementById('myimg').style.transform = 'rotate(0deg)'
+                document.getElementById('myimg').style.webkitTransform = 'rotate(0deg)'
+                document.getElementById('status').innerHTML = 'MOVING'
+            }
+            document.getElementById('deg180').onclick = () => {
+                document.getElementById('myimg').style.transform = 'rotate(180deg)'
+                document.getElementById('myimg').style.webkitTransform = 'rotate(180deg)'
+                document.getElementById('status').innerHTML = 'MOVING'
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <img id="myimg" src="squirtle.png" alt="">
+    </div>
+    <div id="buttons">
+        <button type="button" id="deg0">0 Degrees</button>
+        <button type="button" id="deg180">180 Degrees</button>
+        <p id="status">Idle</p>
+    </div>
+</body>
+
+</html>
