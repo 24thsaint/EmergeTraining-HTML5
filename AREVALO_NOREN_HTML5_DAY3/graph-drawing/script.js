@@ -1,4 +1,17 @@
 window.onload = () => {
+    drawGraph()
+
+    window.onresize = () => {
+        drawGraph()
+    }
+
+    const c = document.getElementById('graph')
+    c.onclick = () => {
+        drawGraph()
+    }
+}
+
+function drawGraph() {
     const c = document.getElementById('graph')
     c.height = window.innerHeight;
     c.width = window.innerWidth;
@@ -15,8 +28,8 @@ window.onload = () => {
 
     drawAxis(context, dx, dy)
     functionOfXRaisedToPower(context, dx, dy, 1, 1)
-    functionOfXRaisedToPower(context, dx, dy, 1, 2)
-    functionOfXRaisedToPower(context, dx, dy, 1, 3)
+    functionOfXRaisedToPower(context, dx, dy, 0.05, 2)
+    functionOfXRaisedToPower(context, dx, dy, 0.01, 3)
 }
 
 function functionOfXRaisedToPower(context, dx, dy, coefficient, power) {
@@ -49,4 +62,6 @@ function drawAxis(context) {
 
     context.strokeStyle = '#000000'
     context.stroke()
+
+    context.draw
 }
