@@ -50,9 +50,8 @@ const popUp = (text) => {
     span.appendChild(document.createTextNode('CATCH!'))
     button.appendChild(span)
     document.body.appendChild(popUp)
-    const popper = document.getElementById('popper')
     setTimeout(() => {
-        transition(popper)
+        transition(popUp)
     }, 500)
 }
 
