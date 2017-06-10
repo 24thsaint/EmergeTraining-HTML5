@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <canvas id="mycanvas" width="400" height="400"></canvas>
+
+    <script>
+        const c = document.getElementById('mycanvas')
+        const context = c.getContext('2d')
+        context.fillStyle = '#00FF00'
+        context.fillRect(10, 10, 100, 100)
+        context.fillStyle = '#FFFF00'
+        context.fillRect(10, 110, 100, 100)
+        context.fillStyle = '#FF0000'
+        context.fillRect(110, 10, 100, 100)
+        context.fillStyle = '#FF00FF'
+        context.fillRect(110, 110, 100, 100)
+    </script>
+</body>
+
+</html>

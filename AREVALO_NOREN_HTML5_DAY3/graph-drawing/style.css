@@ -1,0 +1,16 @@
+/*html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 5px solid white;
+}*/
+
+html,
+body {
+    margin: 0;
+}

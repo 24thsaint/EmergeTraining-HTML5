@@ -11,8 +11,8 @@ const change = (file, id) => {
     img.style.opacity = 0.0
 }
 
-const transition = (element) => {
-    element.style.opacity = 1.0
+const transition = (element, value) => {
+    element.style.opacity = value
 }
 
 const popUp = (text) => {
@@ -40,10 +40,20 @@ const popUp = (text) => {
     const button = document.createElement('button')
     button.onclick = () => {
         const value = document.getElementById('location-field').value
+        const removeChild = () => {
+            setTimeout(() => {
+                document.body.removeChild(popUp)
+            }, 250)
+        }
+
         if (value !== '') {
             change(value, 'image')
         }
-        document.body.removeChild(popUp)
+
+        setTimeout(() => {
+            transition(popUp, 0.0)
+            removeChild()
+        }, 250)
     }
     p2.appendChild(button)
     const span = document.createElement('span')
@@ -51,8 +61,8 @@ const popUp = (text) => {
     button.appendChild(span)
     document.body.appendChild(popUp)
     setTimeout(() => {
-        transition(popUp)
-    }, 500)
+        transition(popUp, 1.0)
+    }, 250)
 }
 
 window.onload = () => {

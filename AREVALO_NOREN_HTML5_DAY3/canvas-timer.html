@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        let color = '#00FF00'
+        const update = () => {
+            const c = document.getElementById('mycanvas')
+            const context = c.getContext('2d')
+            if (color === '#00FF00') {
+                color = '#FF0000'
+            } else {
+                color = '#00FF00'
+            }
+            context.fillStyle = color
+            context.fillRect(10, 10, 100, 100)
+        }
+        window.onload = () => {
+            setInterval(update, 1000)
+            update()
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="mycanvas" width="400" height="400"></canvas>
+</body>
+
+</html>
