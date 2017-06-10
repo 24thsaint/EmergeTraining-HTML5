@@ -43,7 +43,7 @@ window.onload = () => {
 function generateSquares() {
     const c = document.getElementById('squares')
     const context = c.getContext('2d')
-    const squareWidth = 100
+    const squareWidth = 50
 
     let lastX = 0;
     let lastY = 0;
@@ -51,9 +51,27 @@ function generateSquares() {
     let limitX = c.width / squareWidth
     let limitY = c.height / squareWidth
 
-    for (let x = 0; x < limitX; x++) {
-        for (let y = 0; y < limitY; y++) {
-            const square = new Square(x * squareWidth, y * squareWidth, squareWidth)
+    let counter = 0
+
+    for (let y = 0; y < limitY; y++) {
+        for (let x = 0; x < limitX; x++) {
+            if (counter % 7 === 0) {
+                generateMiniSquares(x * squareWidth, y * squareWidth, squareWidth, context)
+            } else {
+                const square = new Square(x * squareWidth, y * squareWidth, squareWidth)
+                square.render(context)
+            }
+            counter++
+        }
+    }
+}
+
+function generateMiniSquares(sizeX, sizeY, squareWidth, context) {
+    const halfSquareWidth = squareWidth * 0.5
+
+    for (let miniTop = 0; miniTop < 2; miniTop++) {
+        for (let miniBot = 0; miniBot < 2; miniBot++) {
+            const square = new Square(sizeX + miniTop * halfSquareWidth, sizeY + miniBot * halfSquareWidth, halfSquareWidth)
             square.render(context)
         }
     }
