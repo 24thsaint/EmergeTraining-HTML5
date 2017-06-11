@@ -16,3 +16,7 @@ body {
     font-size: 40px;
     font-family: cursive;
 }
+
+#game {
+    z-index: 1;
+}

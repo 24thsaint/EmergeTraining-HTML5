@@ -34,10 +34,10 @@ class Character {
 
     move(x) {
         if (!this.isDead) {
-            if ((this.game.maxBoundary + this.halfWidth) < (x - this.width)) {
-                this.x = this.game.maxBoundary + this.width
-            } else if ((this.game.gameWindowWidth - this.width) > (x + this.halfWidth)) {
-                this.x = this.game.gameWindowWidth - (this.width * 2)
+            if (this.game.width - this.halfWidth <= (x)) {
+                this.x = this.game.width - this.width
+            } else if (this.halfWidth >= (x)) {
+                this.x = 0
             } else {
                 this.x = x - (this.halfWidth)
             }
@@ -97,7 +97,7 @@ class Enemy {
 
     render(game) {
         if (this.isDestroyed) {
-            this.game.score.score += 1
+            // this.game.score.score += 1
             game.fillStyle = `rgba(255, 255, 255, ${this.opacity})`
             game.fillRect(this.x, this.y, this.width, this.height)
             this.opacity -= 0.1
@@ -132,7 +132,7 @@ class Game {
         this.gameWindowWidth = 500
         this.maxBoundary = this.width - this.gameWindowWidth
         this.entities = []
-        this.score = new Score()
+            // this.score = score
         this.isGameOver = false
     }
 
@@ -149,8 +149,6 @@ class Game {
         if (!this.isGameOver) {
             this.game.clearRect(0, 0, this.width, this.height)
 
-            this.score.render(this.game)
-
             this.game.fillStyle = '#000000'
             this.game.fillRect(PhysicsEngine.centerize(this.width, this.gameWindowWidth), 0, this.gameWindowWidth, this.height)
 
@@ -160,15 +158,11 @@ class Game {
 
             const chance = Math.floor(Math.random() * 100)
             if (chance <= 10) {
-                const max = this.maxBoundary
-                const min = this.gameWindowWidth
-                const randomX = Math.floor(Math.random() * (max - min + 1)) + min
+                const randomX = Math.floor(Math.random() * (this.width - 50))
                 const enemy = new Enemy(randomX, 0, 50, 50, 1, '#FF0000')
                 this.addEntity(enemy)
             } else if (chance <= 15) {
-                const max = this.maxBoundary
-                const min = this.gameWindowWidth
-                const randomX = Math.floor(Math.random() * (max - min + 1)) + min
+                const randomX = Math.floor(Math.random() * (this.width - 50))
                 const enemy = new Enemy(randomX, 0, 50, 50, 3, '#00FFFF')
                 this.addEntity(enemy)
             }
@@ -188,11 +182,11 @@ class Game {
     }
 
     restart(character) {
-        this.score.score = 0
+        // this.score.score = 0
         this.isGameOver = false
         this.entities = []
         this.addEntity(character)
-        this.addEntity(this.score)
+            // this.addEntity(this.score)
     }
 
     gameOver() {
@@ -225,15 +219,18 @@ class PhysicsEngine {
 class Score {
     constructor() {
         this.score = 0
+            // this.scoreCanvas = scoreCanvas
     }
 
-    render(game) {
-        game.fillStyle = '#000000'
-        game.strokeStyle = '#000000'
-        game.font = '30px Arial'
-        game.fillText('SCORE: ', 100, game.canvas.height * 0.5)
-        game.font = '50px Arial'
-        game.strokeText(`${this.score}`, 250, game.canvas.height * 0.5)
+    render() {
+        // this.scoreCanvas.fillStyle = '#000000'
+        // this.scoreCanvas.clearRect(0, 0, this.scoreCanvas.canvas.width, this.scoreCanvas.canvas.height)
+        // this.scoreCanvas.strokeStyle = '#000000'
+        // this.scoreCanvas.font = '30px Arial'
+        // this.scoreCanvas.fillText('SCORE: ', 800, 800)
+        // this.scoreCanvas.font = '50px Arial'
+        // this.scoreCanvas.strokeText(`${this.score}`, 800, 800)
+        // console.log('scoreDrawn')
     }
 }
 
@@ -246,14 +243,15 @@ window.onload = () => {
 }
 
 function initialize() {
-    const element = document.getElementById('game')
-    element.width = window.innerWidth
-    element.height = window.innerHeight
-    const gameCanvas = element.getContext('2d')
+    const gameElement = document.getElementById('game')
+    gameElement.width = 500
+    gameElement.height = window.innerHeight
+    const gameCanvas = gameElement.getContext('2d')
+
     const entitySize = 50
     const entityMargin = entitySize * 2
-    const width = element.width
-    const height = element.height
+    const width = gameElement.width
+    const height = gameElement.height
 
     gameCanvas.clearRect(0, 0, width, height)
 
@@ -261,11 +259,11 @@ function initialize() {
     const game = new Game(gameCanvas)
     game.addEntity(character)
 
-    element.onmousemove = (event) => {
+    gameElement.onmousemove = (event) => {
         character.move(event.x)
     }
 
-    element.onclick = () => {
+    gameElement.onclick = () => {
         if (game.isGameOver) {
             game.restart(character)
         }
