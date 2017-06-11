@@ -18,5 +18,23 @@ body {
 }
 
 #game {
+    position: absolute;
     z-index: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#mainGame {
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    margin: 0;
+    padding: 0;
+}
+
+#score {
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
 }
