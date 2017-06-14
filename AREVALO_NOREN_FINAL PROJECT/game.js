@@ -1,16 +1,20 @@
 class Game {
-    constructor(context, score) {
+    constructor(context) {
         this.canvas = context
         this.height = context.canvas.clientHeight
         this.width = context.canvas.clientWidth
         this.gameWindowWidth = 500
         this.maxBoundary = this.width - this.gameWindowWidth
         this.entities = []
-        this.score = score
         this.isGameOver = false
         this.eventTimer = new Date()
         this.isSpawningMinions = false
-        this.difficulty = 5
+        this.spawnTime = 5
+        this.difficulty = 1
+
+        setInterval(() => {
+            this.difficulty++
+        }, 10000 + (this.difficulty * 1000))
     }
 
     addEntity(entity) {
@@ -36,16 +40,16 @@ class Game {
             const chance = Math.floor(Math.random() * 100)
             const present = new Date()
 
-            if (PhysicsEngine.getSecondsElapsed(this.eventTimer, present) % this.difficulty === 0 && !this.isSpawningMinions) {
+            if (PhysicsEngine.getSecondsElapsed(this.eventTimer, present) % this.spawnTime === 0 && !this.isSpawningMinions) {
                 this.spawnMinions()
                 this.isSpawningMinions = true
                 setTimeout(() => {
                     this.isSpawningMinions = false
                 }, 1000)
                 setTimeout(() => {
-                    this.difficulty--
-                        if (this.difficulty <= 3) {
-                            this.difficulty = Math.ceil(Math.random() * 5)
+                    this.spawnTime--
+                        if (this.spawnTime <= 1) {
+                            this.spawnTime = Math.ceil(Math.random() * 5)
                         }
                 }, 5000)
             }
@@ -65,21 +69,22 @@ class Game {
     }
 
     spawnMinions() {
-        const mob = new Mob(50)
-
+        const mob = new Mob(50, this.difficulty)
         mob.generateMob().forEach((enemy) => {
             this.addEntity(enemy)
         })
     }
 
     spawnPowerUp() {
-        const randomX = Math.floor(Math.random() * this.width)
-        const powerUp = new PowerUp(randomX, 0, 75, 75, 4)
+        const randomX = Math.floor(Math.random() * this.gameWindowWidth)
+        const powerUp = new PowerUp(randomX, 0, 25, 25, 4)
         this.addEntity(powerUp)
     }
 
     restart(character) {
+        this.difficulty = 1
         character.bulletType = 'normal'
+        character.damage = 1
         this.score.reset()
         this.isGameOver = false
         this.entities = []
@@ -87,8 +92,17 @@ class Game {
     }
 
     gameOver() {
-        window.localStorage.setItem('highScore', this.score.score)
         this.isGameOver = true
+
+        this.entities.forEach((entity) => {
+            if (entity instanceof PowerUp) {
+                entity.element.remove()
+            }
+        })
+    }
+
+    powerUpCaught() {
+
     }
 
 }

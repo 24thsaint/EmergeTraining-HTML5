@@ -1,7 +1,8 @@
 class Mob {
-    constructor(minionSize) {
+    constructor(minionSize, scale) {
         this.enemies = []
         this.minionSize = minionSize
+        this.scale = scale
     }
 
     generateMob() {
@@ -10,15 +11,15 @@ class Mob {
             const chance = Math.floor(Math.random() * 100)
             let enemy
             if (chance <= 20) {
-                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 1, '#FFF59D')
+                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 1 * this.scale, '#FFF59D', 1 * this.scale)
             } else if (chance <= 40 && chance > 20) {
-                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 5, '#FF7043')
+                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 2 * this.scale, '#FF7043', 1 * this.scale)
             } else if (chance <= 60 && chance > 40) {
-                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 7, '#3949AB')
+                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 3 * this.scale, '#3949AB', 1 * this.scale)
             } else if (chance <= 80 && chance > 60) {
-                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 9, '#6A1B9A')
+                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 4 * this.scale, '#6A1B9A', 2 * this.scale)
             } else {
-                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 12, '#B71C1C')
+                enemy = new Enemy(this.enemies.length * this.minionSize, 0, this.minionSize, this.minionSize, 5 * this.scale, '#B71C1C', 3 * this.scale)
             }
             this.enemies.push(enemy)
         }

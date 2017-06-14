@@ -7,7 +7,7 @@ class PhysicsEngine {
         return x + (width * 0.5)
     }
 
-    static collisionDetected(source, target) {
+    static radialCollisionDetected(source, target) {
         const x = PhysicsEngine.collisionAlign(source.x, source.width) - PhysicsEngine.collisionAlign(target.x, target.width)
         const y = PhysicsEngine.collisionAlign(source.y, source.height) - PhysicsEngine.collisionAlign(target.y, target.height)
         const radius = (source.width * 0.5) + (target.width * 0.5)
@@ -16,6 +16,13 @@ class PhysicsEngine {
             return true
         }
         return false
+    }
+
+    static boxCollisionDetected(source, target) {
+        return source.x < target.x + target.width &&
+            source.x + source.width > target.x &&
+            source.y < target.y + target.height &&
+            source.height + source.y > target.y
     }
 
     static generateRandomColor() {
@@ -29,5 +36,12 @@ class PhysicsEngine {
 
     static toRadians(degrees) {
         return degrees * (Math.PI / 180)
+    }
+
+    static createElement(type) {
+        const element = document.createElement(type)
+        element.height = 50
+        element.width = 50
+        return element
     }
 }

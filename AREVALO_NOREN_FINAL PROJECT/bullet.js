@@ -1,5 +1,6 @@
 class Bullet {
-    constructor(x, y, width, height, damage, color) {
+    constructor(character, x, y, width, height, damage, color) {
+        this.character = character
         this.x = x - (width / 2)
         this.y = y
         this.width = width

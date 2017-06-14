@@ -9,7 +9,7 @@ class Character {
         this.counter = 0
         this.isDead = false
         this.bulletType = 'normal'
-        this.powerUpDuration = 0
+        this.damage = 1
 
         setInterval(() => {
             this.shoot()
@@ -19,7 +19,7 @@ class Character {
     render() {
         this.game.entities.forEach((entity) => {
             if (entity instanceof Enemy) {
-                const hasCollision = PhysicsEngine.collisionDetected(entity, this)
+                const hasCollision = PhysicsEngine.boxCollisionDetected(entity, this)
                 if (hasCollision) {
                     this.game.canvas.fillStyle = '#FFFFFF'
                     this.game.canvas.fillRect(this.x, this.y, this.width, this.height)
@@ -53,12 +53,12 @@ class Character {
         switch (this.bulletType) {
             case 'normal':
                 {
-                    bullet = new NormalBullet(this.x + (this.halfWidth), this.y)
+                    bullet = new NormalBullet(this, this.x + (this.halfWidth), this.y, this)
                     break
                 }
             case 'powerup':
                 {
-                    bullet = new PowerUpBullet(this.x + (this.halfWidth), this.y)
+                    bullet = new PowerUpBullet(this, this.x + (this.halfWidth), this.y, this)
                     break
                 }
         }
@@ -67,11 +67,9 @@ class Character {
 
     powerUp(power) {
         this.bulletType = 'powerup'
-
-        clearTimeout(this.powerUpDuration)
-
-        this.powerUpDuration = setTimeout(() => {
+        this.damage += 1
+        setTimeout(() => {
             this.bulletType = 'normal'
-        }, 10000)
+        }, 5000)
     }
 }

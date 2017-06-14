@@ -1,6 +1,6 @@
 class NormalBullet extends Bullet {
-    constructor(x, y) {
-        super(x, y, 10, 20, 3, '#00FF00')
+    constructor(character, x, y) {
+        super(character, x, y, 10, 20, 1, '#00FF00')
     }
 
     render() {
@@ -15,7 +15,7 @@ class NormalBullet extends Bullet {
 
         this.game.entities.forEach((entity) => {
             if (entity instanceof Enemy && !entity.isDestroyed) {
-                const hasCollision = PhysicsEngine.collisionDetected(this, entity)
+                const hasCollision = PhysicsEngine.boxCollisionDetected(this, entity)
                 if (hasCollision) {
                     entity.hit(this)
                     this.destroy()

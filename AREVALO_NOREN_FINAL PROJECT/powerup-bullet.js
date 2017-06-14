@@ -1,6 +1,6 @@
 class PowerUpBullet extends Bullet {
-    constructor(x, y) {
-        super(x, y, 20 * 7, 20, 5, '#FF00FF')
+    constructor(character, x, y) {
+        super(character, x, y, 40, 20, 3, '#FF00FF')
     }
 
     render() {
@@ -15,10 +15,9 @@ class PowerUpBullet extends Bullet {
 
         this.game.entities.forEach((entity) => {
             if (entity instanceof Enemy && !entity.isDestroyed) {
-                const hasCollision = PhysicsEngine.collisionDetected(this, entity)
+                const hasCollision = PhysicsEngine.boxCollisionDetected(this, entity)
                 if (hasCollision) {
                     entity.hit(this)
-                        // this.destroy()
                 }
             }
         })
