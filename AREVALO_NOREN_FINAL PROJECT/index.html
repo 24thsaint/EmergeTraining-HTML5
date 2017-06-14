@@ -21,7 +21,10 @@
 
 <body>
     <div id="starter">
-        ⎆ CLICK TO START
+        <img src="logo.png" alt="logo">
+        <div id="interactive-start">
+            ⎆ CLICK TO START SQUARING!
+        </div>
     </div>
 
     <div id="main-game">
@@ -29,15 +32,27 @@
         <canvas id="game"></canvas>
         <div id="title">
             <img src="logo.png" alt="logo">
-            <div id="mechanics">
-                <div class="legend">
-                    <div id="yellow">
-
-                    </div>
-                    <div class="description">
-
-                    </div>
-                </div>
+            <div id="description">
+                <p>
+                    How long can you keep up with the monster shape mob?
+                </p>
+                <p><span id="yellow" class="square"></span>
+                    <span id="orange" class="square"></span>
+                    <span id="blue" class="square"></span>
+                    <span id="violet" class="square"></span>
+                    <span id="red" class="square"></span>
+                </p>
+                <p>
+                    <br> Fight them with bullets <span id="bullet"></span> as they evolve into difficult monsters! <br>
+                    <p>Catch power-ups
+                        <span id="power-up-sample"></span> that grant permanent damage upgrade and a 5-second laser sweep <span id="laser-sample"></span> to help you out!</p>
+                    <br>
+                    <h2>Happy Squaring!</h2>
+                </p>
+                <hr>
+                <p class="italic-text">
+                    The game uses HTML5 technologies and is a project output of the training conducted by <a href="http://www.jobandesther.com/">Job&Esther Technologies</a>.<br> If you are interested in the source code, you may view it <a href="https://github.com/24thsaint/EmergeTraining-HTML5/tree/master/AREVALO_NOREN_FINAL%20PROJECT">here @Github</a>.
+                </p>
             </div>
         </div>
     </div>

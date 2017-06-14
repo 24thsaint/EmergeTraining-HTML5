@@ -8,7 +8,10 @@ window.onload = () => {
             starter.remove()
         }, 1000)
         const gameContainer = document.getElementById('main-game')
-        gameContainer.style.left = '0'
+        gameContainer.style.display = 'block'
+        setTimeout(() => {
+            gameContainer.style.left = '0'
+        }, 100)
         initialize()
     }
     window.addEventListener('click', handler, false)

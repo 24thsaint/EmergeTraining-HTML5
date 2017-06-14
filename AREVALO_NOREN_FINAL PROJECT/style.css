@@ -1,21 +1,14 @@
 html,
 body {
-    margin: 0;
+    margin: 1;
     width: 100%;
     height: 100%;
 }
 
-body {
-    /*display: table;*/
-}
-
 #starter {
-    /*display: table-cell;
-    vertical-align: middle;
-    text-align: center;*/
     position: fixed;
-    top: 50%;
-    right: 50%;
+    top: 25%;
+    right: 25%;
     font-size: 40px;
     font-family: cursive;
     -webkit-transition: 1s;
@@ -26,16 +19,17 @@ body {
 #game {
     position: absolute;
     z-index: 1;
-    margin: 0;
-    padding: 0;
+    margin: 1;
+    padding: 1;
 }
 
 #main-game {
+    display: none;
     position: absolute;
     height: 100%;
     width: 500px;
-    margin: 0;
-    padding: 0;
+    margin: 1;
+    padding: 1;
     left: -100%;
     transition: 1s;
 }
@@ -49,15 +43,15 @@ body {
 #score {
     position: absolute;
     z-index: 2;
-    margin: 0;
-    padding: 0;
+    margin: 1;
+    padding: 1;
     left: 500px;
 }
 
 .show-front {
     position: fixed;
-    margin: 0;
-    padding: 0;
+    margin: 1;
+    padding: 1;
     z-index: 3;
 }
 
@@ -81,38 +75,195 @@ body {
     animation-iteration-count: infinite;
 }
 
+#interactive-start {
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+    border: 1px solid white;
+}
+
+#interactive-start:hover {
+    cursor: pointer;
+    border: 1px solid cyan;
+    padding: 10px;
+    transition: border-top 0.50s ease-out 0s, padding-right 0.50s ease-in 0s, border-right 0.50s ease-out 5s, padding-right 0.50s ease-in 5s, border-bottom 0.50s ease-out 1s, padding-bottom 0.50s ease-in 1s, border-left 0.50s ease-out 1.5s, padding-left 0.50s ease-in 1.5s;
+}
+
+@-webkit-keyframes drawRect {
+    25% {
+        border-left: 1px solid blue;
+    }
+    50% {
+        border-left: 1px solid blue;
+        border-bottom: 1px solid blue;
+    }
+    75% {
+        border-left: 1px solid blue;
+        border-bottom: 1px solid blue;
+        border-right: 1px solid blue;
+    }
+    100% {
+        border: 1px solid blue;
+        padding: 10px;
+    }
+}
+
+@keyframes drawRect {
+    25% {
+        border-left: 1px solid blue;
+    }
+    50% {
+        border-left: 1px solid blue;
+        border-bottom: 1px solid blue;
+    }
+    75% {
+        border-left: 1px solid blue;
+        border-bottom: 1px solid blue;
+        border-right: 1px solid blue;
+    }
+    100% {
+        border: 1px solid blue;
+        padding: 10px;
+    }
+}
+
 @-webkit-keyframes spin {
     from {
+        transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
     }
     to {
+        transform: rotate(360deg);
         -webkit-transform: rotate(360deg);
     }
 }
 
 @keyframes spin {
     from {
+        transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
     }
     to {
+        transform: rotate(360deg);
         -webkit-transform: rotate(360deg);
     }
 }
 
 @-webkit-keyframes whack {
     from {
-        -webkit-transform: rotate(0deg) scale(0);
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1);
     }
     to {
+        transform: rotate(720deg) scale(1);
         -webkit-transform: rotate(720deg) scale(1);
     }
 }
 
 @keyframes whack {
     from {
-        -webkit-transform: rotate(0deg) scale(0);
+        transform: rotate(0deg) scale(1);
+        -webkit-transform: rotate(0deg) scale(1);
     }
     to {
+        transform: rotate(720deg) scale(1);
         -webkit-transform: rotate(720deg) scale(1);
     }
+}
+
+@keyframes angry-mob-shake {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    10% {
+        padding-right: 40px;
+        transform: scale(2);
+        -webkit-transform: scale(2);
+    }
+    20% {
+        padding-right: 20px;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    100% {
+        padding-right: 20px;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+
+@-webkit-keyframes angry-mob-shake {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    10% {
+        transform: scale(2);
+        -webkit-transform: scale(2);
+    }
+    20% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+}
+
+.square {
+    padding: 20px;
+    display: inline-block;
+    transition: 1s;
+}
+
+#power-up-sample {
+    padding: 10px;
+    background-color: grey;
+    animation: spin 1s linear 0s infinite;
+    display: inline-block;
+}
+
+#laser-sample {
+    padding-top: 10px;
+    padding-right: 20px;
+    background-color: #FF00FF;
+    display: inline-block;
+}
+
+#yellow {
+    background-color: #FFF59D;
+    animation: angry-mob-shake 5s linear 0s infinite;
+}
+
+#orange {
+    background-color: #FF7043;
+    animation: angry-mob-shake 5s linear 1s infinite;
+}
+
+#blue {
+    background-color: #3949AB;
+    animation: angry-mob-shake 5s linear 2s infinite;
+}
+
+#violet {
+    background-color: #6A1B9A;
+    animation: angry-mob-shake 5s linear 3s infinite;
+}
+
+#red {
+    background-color: #B71C1C;
+    animation: angry-mob-shake 5s linear 4s infinite;
+}
+
+#bullet {
+    padding-top: 10px;
+    padding-right: 5px;
+    margin-right: 5px;
+    background-color: lime;
+}
+
+.italic-text {
+    font-style: italic;
 }
