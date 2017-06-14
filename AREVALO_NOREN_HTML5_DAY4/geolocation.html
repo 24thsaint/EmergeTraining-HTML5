@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window.onload = () => {
+            navigator.geolocation.getCurrentPosition((pos) => {
+                document.getElementById('position').innerHTML = `You are at ${pos.coords.latitude}, ${pos.coords.longitude}`
+                document.getElementById('map').src = `http://maps.googleapis.com//maps/api/staticmap?center=${pos.coords.latitude},${pos.coords.longitude}&size=400x300&zoom=15&sensor=false`
+            }, (err) => {
+                console.log(err)
+            }, {
+                enableHighAccuracy: true
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="position">
+        No known position
+    </div>
+    <img id="map" alt="">
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script id="workerscript" type="javascript/worker">
+        let x = 0; self.postMessage(x); setInterval(() => { self.postMessage(x++) });
+    </script>
+    <script>
+        window.onload = () => {
+            let worker = new Worker(window.URL.createObjectURL(new Blob([document.getElementById('workerscript').textContent])))
+            worker.onmessage = (e) => {
+                document.getElementById('content').innerHTML = e.data
+            }
+            worker.postMessage()
+        }
+    </script>
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (e) => {
+                const a = e.alpha
+                const b = e.beta
+                const c = e.gamma
+            }, false)
+        }
+    </script>
+
+    <script>
+        window.addEventListener('devicemotion', (e) => {
+            var ax = e.acceleration.x
+            var ay = e.acceleration.y
+        })
+    </script>
+</head>
+
+<body>
+    <a href="sms:09093402230?body=hello">Click to send</a>
+</body>
+
+</html>

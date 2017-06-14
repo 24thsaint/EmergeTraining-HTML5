@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window.onload = () => {
+            const c = document.getElementById('sprite')
+            c.height = 1000
+            c.width = 1000
+            const context = c.getContext('2d');
+
+            const image = new Image()
+            image.src = './sprite-circle.png'
+
+            image.addEventListener('load', (e) => {
+
+                // (image, distance, orginalW, originalH, scaleW, scaleH, totalFrames, context, xCanvasPos, yCanvasPos
+                const sprite = new Sprite(
+                    image, 1, 300, 300, 100, 100, 24, context, 0, 0
+                )
+                sprite.animate()
+            }, false)
+
+        }
+
+        class Sprite {
+            constructor(image, distance, imageWidth, imageHeight, scaleWidth, scaleHeight, totalFrames, context, posX, posY) {
+                this.distance = distance
+                this.image = image
+                this.imageWidth = imageWidth
+                this.imageHeight = imageHeight
+                this.currentFrame = 0
+                this.scaleWidth = scaleWidth
+                this.scaleHeight = scaleHeight
+                this.totalFrames = totalFrames
+                this.x = 0
+                this.y = 0
+                this.posX = posX
+                this.posY = posY
+                this.context = context
+            }
+
+            animate() {
+                this.context.clearRect(0, 0, this.imageWidth, this.imageHeight);
+
+                this.context.drawImage(this.image,
+                    this.x,
+                    this.y,
+                    this.imageWidth,
+                    this.imageHeight,
+                    this.posX,
+                    this.posY,
+                    this.scaleWidth,
+                    this.scaleHeight)
+
+                this.x += this.imageWidth + this.distance
+
+                if (this.currentFrame === this.totalFrames) {
+                    this.x = 0
+                    this.currentFrame = 0
+                }
+
+                this.currentFrame++
+
+                    requestAnimationFrame(() => {
+                        this.animate()
+                    })
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="sprite"></canvas>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            margin: 5px;
+        }
+        
+        #result {
+            padding: 30px;
+            margin-bottom: 10px;
+            border: 1px solid black;
+            background-color: #0000FF;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        #content {
+            text-align: center;
+        }
+        
+        #content>div {
+            display: inline-block;
+            padding: 1px;
+            border: 10px solid black;
+            background-color: #0000FF;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            width: 20px;
+            cursor: move;
+        }
+    </style>
+
+    <script>
+        window.onload = () => {
+            document.getElementById('result').addEventListener('dragover', (e) => {
+                e.preventDefault()
+                e.dataTransfer.dropEffect = 'copy'
+            }, false)
+            document.getElementById('result').addEventListener('drop', (e) => {
+                e.target.innerHTML = e.dataTransfer.getData('text/html')
+                e.stopPropagation()
+            }, false)
+
+            createDraggableAction('drag1', 'first')
+            createDraggableAction('drag2', 'second')
+            createDraggableAction('drag3', 'third')
+
+            function createDraggableAction(target, value) {
+                document.getElementById(target).addEventListener('dragstart', (e) => {
+                    e.dataTransfer.effectAllowed = 'copy'
+                    e.dataTransfer.setData('text/html', value)
+                }, false)
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="result">
+        Please drag me here
+    </div>
+    <div id="content">
+        <div id="drag1" draggable="true">
+            1
+        </div>
+        <div id="drag2" draggable="true">
+            2
+        </div>
+        <div id="drag3" draggable="true">
+            3
+        </div>
+    </div>
+</body>
+
+</html>
